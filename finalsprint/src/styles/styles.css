@@ -1,0 +1,422 @@
+/*AUTHORS: Zachary Collier, Sarah Elizabeth Murphy, Kyle/Scarlett Budgell
+        END DATE: October 26th 2024
+        DESCRIPTION: Style Sheet for Molten Metalworks.*/
+
+* {
+  margin: 0;
+  padding: 0;
+  /*font-family: Georgia, serif; Use font-family for fonts*/
+}
+
+.bodybox {
+  background-color: #2e0509;
+  color: white;
+}
+
+header {
+  background-color: #88111d;
+  display: grid;
+  position: sticky;
+  top: 0;
+  grid-template-columns: 6fr 1fr;
+  height: auto;
+}
+
+main {
+  padding-bottom: 3rem;
+}
+
+.companyheading {
+  display: flex;
+  align-items: end;
+  padding-left: 5%;
+}
+
+nav {
+  grid-column: -1;
+  font-size: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+.navbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #580f0f;
+  padding: 0.5rem;
+  border-left: 2px solid black;
+}
+
+.navbox > p {
+  text-align: center;
+  overflow-wrap: break-word; /* Ensures text will break within words if necessary */
+}
+
+.navbox:hover {
+  background-color: orangered;
+}
+
+nav a:link {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: white;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  background-color: #551111;
+}
+
+.copyright {
+  display: flex;
+  align-items: center;
+  padding-left: 4%;
+}
+
+.socials {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 3rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-right: 4rem;
+  justify-content: end;
+}
+
+.socials > a > img {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Red asterisk for required fields */
+.required-star {
+  color: red;
+  margin-left: 5px;
+}
+
+button {
+  background-color: #d7a97a;
+  color: #4d0707;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Index Page */
+
+.about-heading {
+  display: flex;
+  justify-content: center;
+}
+
+.about-main {
+  padding-left: 5rem;
+  padding-right: 5rem;
+  background-color: #1a0809;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.about-main > p {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.ownerbox {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background-color: #1a0809;
+  color: white;
+  border: 3px solid white;
+  margin: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.ownerimg {
+  display: flex;
+  justify-content: center;
+}
+
+/* Improved bottom section of Index Page for business and reviews.*/
+.business-and-reviews {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: space-evenly;
+}
+
+.business, .reviews {
+  flex: 1;
+  background-color: #1a0809;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  border: 3px solid white;
+  border-radius: 8px;
+}
+
+.reviews .review {
+  margin-bottom: 1rem;
+}
+
+
+/* Product Page */
+
+.product-box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.products-heading {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.product-box {
+  display: flex;
+  float: left;
+  padding: 1rem;
+  margin: 1.5rem;
+  align-content: center;
+  text-align: center;
+  border: 3px solid white;
+}
+
+.img-box {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 300px;
+  padding: 2rem;
+}
+
+.img-box > img,
+p,
+h4 {
+  opacity: 1;
+}
+
+.img-box > p,
+h4 {
+  padding-top: 15px;
+}
+
+/* Order Page */
+
+#alertBox {
+  display: flex;
+  position: sticky;
+  bottom: 0;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 1rem;
+}
+
+.custom-order-box {
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 1.5rem 5%;
+  border: 3px solid white;
+}
+
+.custom-order-heading {
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+.custom-order-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.custom-order-form > label {
+  text-align: right;
+}
+
+.custom-order-form > input,
+select {
+  width: 50%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #6b2a2a;
+  color: #fff;
+}
+
+.item-submit {
+  display: flex;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  justify-content: center;
+}
+
+.order-list-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+#orderList {
+  border-collapse: collapse;
+  width: 50%;
+  border: #fff solid 3px;
+}
+
+#orderList thead th {
+  border: #fff solid 3px;
+  padding: 0.5rem;
+  background-color: #4d0707;
+}
+
+#orderList tr td {
+  border-left: #fff solid 3px;
+  border-bottom: #fff dotted 3px;
+  padding: 0.25rem;
+  background-color: #6b2a2a;
+}
+
+.order-total {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-right: 30%;
+}
+
+.order-total > input {
+  width: 15%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #6b2a2a;
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.customer-info-box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.customer-info-box > table {
+  width: 50%;
+}
+
+.customer-info-box table tr td {
+  padding: 1.5rem;
+  text-align: right;
+}
+
+.customer-info-box table tr td input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #6b2a2a;
+  color: #fff;
+  margin-left: 1rem;
+  width: 100%;
+}
+
+.order-button {
+  display: flex;
+  justify-content: center;
+}
+
+.order-footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Space between the checkbox and button */
+  margin-top: 20px;
+}
+
+.order-footer-container label,
+.order-footer-container button {
+  cursor: pointer;
+}
+
+@media (max-width: 1080px) {
+  .customer-info-box > table {
+    width: 75%;
+  }
+}
+
+@media (max-width: 760px) {
+  header {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  nav {
+    grid-column: 1;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+  }
+
+  .socials {
+    justify-content: center;
+  }
+
+  /* Index Page */
+
+  .about-main {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .ownerbox {
+    grid-template-columns: 1fr;
+    padding-right: 2rem;
+  }
+
+  .ownerimg {
+    padding-top: 1rem;
+  }
+
+  .business-and-reviews {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Order Page */
+
+  .custom-order-form > input,
+  select {
+    width: 99%;
+  }
+
+  .order-total > input {
+    width: 25%;
+  }
+
+  .customer-info-box > table {
+    width: 99%;
+  }
+
+  .customer-info-box table tr td input {
+    width: 100%;
+    margin-left: 0rem;
+  }
+}
