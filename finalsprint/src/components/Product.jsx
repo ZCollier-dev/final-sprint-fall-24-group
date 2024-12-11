@@ -23,6 +23,11 @@ const Product = () => (
               <p>Order Now!</p>
             </div>
           </a>
+          <a href="/cart" aria-label="View Cart">
+          <div className="navbox" id="viewcart">
+            <p>View Cart</p>
+          </div>
+        </a>
         </nav>
       </header>
       <main>
