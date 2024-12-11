@@ -13,6 +13,8 @@
 .bodybox {
   background-color: #2e0509;
   color: white;
+  min-height: 100vh;
+  padding-bottom: 3rem;
 }
 
 header {
@@ -78,6 +80,9 @@ footer {
   display: grid;
   grid-template-columns: 4fr 1fr;
   background-color: #551111;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .copyright {
@@ -162,7 +167,8 @@ button {
   justify-content: space-evenly;
 }
 
-.business, .reviews {
+.business,
+.reviews {
   flex: 1;
   background-color: #1a0809;
   color: white;
@@ -175,7 +181,6 @@ button {
 .reviews .review {
   margin-bottom: 1rem;
 }
-
 
 /* Product Page */
 
