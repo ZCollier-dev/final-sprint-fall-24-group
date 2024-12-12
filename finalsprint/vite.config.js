@@ -1,11 +1,18 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   server: {
-    open: true,
+    port: 4000, // Change to a port you know is free
   },
-  test: { globals: true, environment: "jsdom" },
+
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/tests/setupTests.js",
+  },
 });
+
+// Server is set to port 4000, for the sake of the JSON server running on port 5000. - cybrrgrl
+

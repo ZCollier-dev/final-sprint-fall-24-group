@@ -1,61 +1,81 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import "../styles/styles.css";
 
 const Cart = () => {
   const TAX_RATE = 0.15;
+  const [cartItems, setCartItems] = useState([]);
 
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Iron Bracelet",
-      price: 175,
-      image: "/images/image 5.png",
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: "Copper Keychain",
-      price: 80,
-      image: "/images/image 8.png",
-      quantity: 1,
-    },
-    {
-      id: 3,
-      name: "Gold Candlesticks (Set of 2)",
-      price: 350,
-      image: "/images/image 10.png",
-      quantity: 1,
-    },
-  ]);
+  useEffect(() => {
+    fetchCartItems();
+  }, []);
 
-  const incrementQuantity = (id) => {
-    setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
+  const fetchCartItems = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/cart");
+      const data = await response.json();
+      setCartItems(data);
+    } catch (error) {
+      console.error("Error fetching cart items:", error);
+    }
   };
 
-  const decrementQuantity = (id) => {
-    setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id && item.quantity > 0
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
-    );
+  const incrementQuantity = async (id) => {
+    const item = cartItems.find((item) => item.id === id);
+    if (item) {
+      try {
+        await fetch(`http://localhost:5000/cart/${id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ quantity: item.quantity + 1 }),
+        });
+        fetchCartItems();
+      } catch (error) {
+        console.error("Error incrementing quantity:", error);
+      }
+    }
   };
 
-  const removeItem = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  const decrementQuantity = async (id) => {
+    const item = cartItems.find((item) => item.id === id);
+    if (item && item.quantity > 1) {
+      try {
+        await fetch(`http://localhost:5000/cart/${id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ quantity: item.quantity - 1 }),
+        });
+        fetchCartItems();
+      } catch (error) {
+        console.error("Error decrementing quantity:", error);
+      }
+    }
   };
 
-  const subtotal = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
+  const removeItem = async (id) => {
+    try {
+      await fetch(`http://localhost:5000/cart/${id}`, {
+        method: "DELETE",
+      });
+      fetchCartItems();
+    } catch (error) {
+      console.error("Error removing item:", error);
+    }
+  };
+
+  const subtotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   const tax = subtotal * TAX_RATE;
   const total = subtotal + tax;
+
+  const handleContinueToPayment = () => {
+    if (cartItems.length === 0) {
+      alert("Your cart is empty. Please add a product to proceed to payment.");
+      return;
+    }
+    if (window.confirm("Do you want to continue to payment?")) {
+      console.log("Continuing to payment...");
+      // Navigate to the payment page or handle payment logic here.
+    }
+  };
 
   return (
     <div className="bodybox">
@@ -76,7 +96,7 @@ const Cart = () => {
           </a>
           <a href="/order" aria-label="Order Now">
             <div className="navbox" id="ordernav">
-              <p>Order Now!</p>
+              <p>Checkout</p>
             </div>
           </a>
           <a href="/cart" aria-label="View Cart">
@@ -90,17 +110,17 @@ const Cart = () => {
       <div className="cart">
         <h1>Shopping Cart</h1>
         {cartItems.length === 0 ? (
-          <p>Your cart is empty</p>
+          <p>Hmmm... It appears your cart is empty! ヽ(●ﾟ´Д｀ﾟ●)ﾉﾟ</p>
         ) : (
           cartItems.map((item) => (
             <div className="cart-item" key={item.id}>
               <img src={item.image} alt={item.name} />
-              <div className="cart-item-info">
+              <div>
                 <h3>{item.name}</h3>
-                <p> ${item.price.toFixed(2)}</p>
+                <p>${item.price.toFixed(2)}</p>
                 <div className="quantity-button">
                   <button onClick={() => decrementQuantity(item.id)}>-</button>
-                  <div>{item.quantity}</div>
+                  <span>{item.quantity}</span>
                   <button onClick={() => incrementQuantity(item.id)}>+</button>
                 </div>
                 <button onClick={() => removeItem(item.id)}>Remove</button>
@@ -111,9 +131,14 @@ const Cart = () => {
         <div className="summary">
           <h2>Order Summary</h2>
           <p>Subtotal: ${subtotal.toFixed(2)}</p>
-          <p>Taxes (15%): ${tax.toFixed(2)}</p>
-          <br />
+          <p>Taxes (15%): ${tax.toFixed(2)}</p><br/>
           <p>Total: ${total.toFixed(2)}</p>
+          <button 
+            className="continue-payment-button" 
+            onClick={handleContinueToPayment}
+          >
+            Continue to Payment
+          </button>
         </div>
       </div>
 
