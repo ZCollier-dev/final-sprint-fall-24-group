@@ -8,10 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^14.2.0",
+    "jsdom": "^24.0.0",
     "midterm-sprint-react-vite": "file:",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6.0.0"
+    "react-router-dom": "^6.0.0",
+    "vitest": "^2.1.8"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^3.0.0",
