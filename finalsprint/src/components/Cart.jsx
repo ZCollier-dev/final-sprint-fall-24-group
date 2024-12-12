@@ -1,13 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "../styles/styles.css";
 
 const Cart = () => {
   const TAX_RATE = 0.15;
 
   const [cartItems, setCartItems] = useState([
-    { id: 1, name: 'Iron Bracelet', price: 175, image: '/images/image 5.png', quantity: 1 },
-    { id: 2, name: 'Copper Keychain', price: 80, image: '/images/image 8.png', quantity: 1 },
-    { id: 3, name: 'Gold Candlesticks (Set of 2)', price: 350, image: '/images/image 10.png', quantity: 1},
+    {
+      id: 1,
+      name: "Iron Bracelet",
+      price: 175,
+      image: "/images/image 5.png",
+      quantity: 1,
+    },
+    {
+      id: 2,
+      name: "Copper Keychain",
+      price: 80,
+      image: "/images/image 8.png",
+      quantity: 1,
+    },
+    {
+      id: 3,
+      name: "Gold Candlesticks (Set of 2)",
+      price: 350,
+      image: "/images/image 10.png",
+      quantity: 1,
+    },
   ]);
 
   const incrementQuantity = (id) => {
@@ -21,7 +39,9 @@ const Cart = () => {
   const decrementQuantity = (id) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === id && item.quantity > 0 ? { ...item, quantity: item.quantity - 1 } : item
+        item.id === id && item.quantity > 0
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
       )
     );
   };
@@ -30,7 +50,10 @@ const Cart = () => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
-  const subtotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const subtotal = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
   const tax = subtotal * TAX_RATE;
   const total = subtotal + tax;
 
@@ -72,12 +95,12 @@ const Cart = () => {
           cartItems.map((item) => (
             <div className="cart-item" key={item.id}>
               <img src={item.image} alt={item.name} />
-              <div>
+              <div className="cart-item-info">
                 <h3>{item.name}</h3>
                 <p> ${item.price.toFixed(2)}</p>
                 <div className="quantity-button">
                   <button onClick={() => decrementQuantity(item.id)}>-</button>
-                  <span>{item.quantity}</span>
+                  <div>{item.quantity}</div>
                   <button onClick={() => incrementQuantity(item.id)}>+</button>
                 </div>
                 <button onClick={() => removeItem(item.id)}>Remove</button>
@@ -86,9 +109,10 @@ const Cart = () => {
           ))
         )}
         <div className="summary">
-            <h2>Order Summary</h2>
+          <h2>Order Summary</h2>
           <p>Subtotal: ${subtotal.toFixed(2)}</p>
-          <p>Taxes (15%): ${tax.toFixed(2)}</p><br/>
+          <p>Taxes (15%): ${tax.toFixed(2)}</p>
+          <br />
           <p>Total: ${total.toFixed(2)}</p>
         </div>
       </div>
