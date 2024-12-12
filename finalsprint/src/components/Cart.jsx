@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import "../styles/styles.css";
 
 const Cart = () => {
@@ -62,7 +62,10 @@ const Cart = () => {
     }
   };
 
-  const subtotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const subtotal = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
   const tax = subtotal * TAX_RATE;
   const total = subtotal + tax;
 
@@ -115,7 +118,7 @@ const Cart = () => {
           cartItems.map((item) => (
             <div className="cart-item" key={item.id}>
               <img src={item.image} alt={item.name} />
-              <div>
+              <div className="cart-item-info">
                 <h3>{item.name}</h3>
                 <p>${item.price.toFixed(2)}</p>
                 <div className="quantity-button">
@@ -131,10 +134,11 @@ const Cart = () => {
         <div className="summary">
           <h2>Order Summary</h2>
           <p>Subtotal: ${subtotal.toFixed(2)}</p>
-          <p>Taxes (15%): ${tax.toFixed(2)}</p><br/>
+          <p>Taxes (15%): ${tax.toFixed(2)}</p>
+          <br />
           <p>Total: ${total.toFixed(2)}</p>
-          <button 
-            className="continue-payment-button" 
+          <button
+            className="continue-payment-button"
             onClick={handleContinueToPayment}
           >
             Continue to Payment
