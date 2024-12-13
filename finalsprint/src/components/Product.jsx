@@ -47,11 +47,6 @@ const Product = () => {
               <p>Products</p>
             </div>
           </a>
-          <a href="/order" aria-label="Order Now">
-            <div className="navbox" id="ordernav">
-              <p>Checkout</p>
-            </div>
-          </a>
           <a href="/cart" aria-label="View Cart">
             <div className="navbox" id="viewcart">
               <p>View Cart</p>
@@ -80,6 +75,25 @@ const Product = () => {
           ))}
         </div>
       </main>
+      <footer>
+        <div className="copyright">
+          <p>Copyright &copy; Molten Metalworks 2024</p>
+        </div>
+        <div className="socials">
+          <a href="#" aria-label="Email">
+            <img src="/images/email-icon 1.png" alt="Email" title="Email" />
+          </a>
+          <a href="#" aria-label="Facebook">
+            <img src="/images/facebook-icon 1.png" alt="Facebook" title="Facebook" />
+          </a>
+          <a href="#" aria-label="Instagram">
+            <img src="/images/instagram-icon 1.png" alt="Instagram" title="Instagram" />
+          </a>
+          <a href="#" aria-label="Twitter/X">
+            <img src="/images/twitter-icon 2.png" alt="Twitter/X" title="Twitter/X" />
+          </a>
+        </div>
+      </footer>
     </div>
   );
 };

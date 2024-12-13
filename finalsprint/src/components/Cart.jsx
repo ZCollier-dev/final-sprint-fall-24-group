@@ -62,23 +62,21 @@ const Cart = () => {
     }
   };
 
-  const subtotal = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
-  const tax = subtotal * TAX_RATE;
-  const total = subtotal + tax;
-
   const handleContinueToPayment = () => {
     if (cartItems.length === 0) {
       alert("Your cart is empty. Please add a product to proceed to payment.");
       return;
     }
-    if (window.confirm("Do you want to continue to payment?")) {
-      console.log("Continuing to payment...");
-      // Navigate to the payment page or handle payment logic here.
+
+    const userResponse = window.confirm("Do you want to continue to payment?");
+    if (userResponse) {
+      window.location.href = "/order";
     }
   };
+
+  const subtotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const tax = subtotal * TAX_RATE;
+  const total = subtotal + tax;
 
   return (
     <div className="bodybox">
@@ -97,11 +95,6 @@ const Cart = () => {
               <p>Products</p>
             </div>
           </a>
-          <a href="/order" aria-label="Order Now">
-            <div className="navbox" id="ordernav">
-              <p>Checkout</p>
-            </div>
-          </a>
           <a href="/cart" aria-label="View Cart">
             <div className="navbox" id="viewcart">
               <p>View Cart</p>
@@ -112,13 +105,15 @@ const Cart = () => {
 
       <div className="cart">
         <h1>Shopping Cart</h1>
+        <br />
         {cartItems.length === 0 ? (
-          <p>Hmmm... It appears your cart is empty! ヽ(●ﾟ´Д｀ﾟ●)ﾉﾟ</p>
+          <p>Oops! It appears the cart is empty! Please add items!</p>
+          
         ) : (
           cartItems.map((item) => (
             <div className="cart-item" key={item.id}>
               <img src={item.image} alt={item.name} />
-              <div className="cart-item-info">
+              <div>
                 <h3>{item.name}</h3>
                 <p>${item.price.toFixed(2)}</p>
                 <div className="quantity-button">
@@ -131,18 +126,16 @@ const Cart = () => {
             </div>
           ))
         )}
-        <div className="summary">
-          <h2>Order Summary</h2>
-          <p>Subtotal: ${subtotal.toFixed(2)}</p>
-          <p>Taxes (15%): ${tax.toFixed(2)}</p>
+<br />
+          <div className="order-summary">
+          <h3>Order Summary</h3>
           <br />
-          <p>Total: ${total.toFixed(2)}</p>
-          <button
-            className="continue-payment-button"
-            onClick={handleContinueToPayment}
-          >
-            Continue to Payment
-          </button>
+          <div className="summary-box">
+            <p>Subtotal: ${subtotal.toFixed(2)}</p>
+            <p>Taxes (15%): ${tax.toFixed(2)}</p>
+            <p>Total: ${total.toFixed(2)}</p>
+          </div>
+          <button onClick={handleContinueToPayment}>Continue to Payment</button>
         </div>
       </div>
 
@@ -152,16 +145,16 @@ const Cart = () => {
         </div>
         <div className="socials">
           <a href="#" aria-label="Email">
-            <img src="/images/email-icon 1.png" alt="Email" />
+            <img src="/images/email-icon 1.png" alt="Email" title="Email" />
           </a>
           <a href="#" aria-label="Facebook">
-            <img src="/images/facebook-icon 1.png" alt="Facebook" />
+            <img src="/images/facebook-icon 1.png" alt="Facebook" title="Facebook" />
           </a>
           <a href="#" aria-label="Instagram">
-            <img src="/images/instagram-icon 1.png" alt="Instagram" />
+            <img src="/images/instagram-icon 1.png" alt="Instagram" title="Instagram" />
           </a>
           <a href="#" aria-label="Twitter/X">
-            <img src="/images/twitter-icon 2.png" alt="Twitter/X" />
+            <img src="/images/twitter-icon 2.png" alt="Twitter/X" title="Twitter/X" />
           </a>
         </div>
       </footer>

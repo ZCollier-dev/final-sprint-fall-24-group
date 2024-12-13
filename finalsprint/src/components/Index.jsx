@@ -18,11 +18,6 @@ const Index = () => (
             <p>Products</p>
           </div>
         </a>
-        <a href="/order" aria-label="Order Now">
-          <div className="navbox" id="ordernav">
-            <p>Checkout</p>
-          </div>
-        </a>
         <a href="/cart" aria-label="View Cart">
           <div className="navbox" id="viewcart">
             <p>View Cart</p>

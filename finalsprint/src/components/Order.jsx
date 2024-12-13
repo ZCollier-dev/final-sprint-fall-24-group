@@ -35,7 +35,10 @@ const Order = () => {
     try {
       const response = await fetch("http://localhost:5000/cart");
       const cartItems = await response.json();
-      const calculatedSubtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const calculatedSubtotal = cartItems.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
       const calculatedTax = calculatedSubtotal * 0.15;
       const calculatedTotal = calculatedSubtotal + calculatedTax;
 
@@ -49,7 +52,6 @@ const Order = () => {
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
-
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -79,7 +81,6 @@ const Order = () => {
       alert("Please review the form.");
       return;
     }
-
     alert("Order has been placed!");
   };
 
@@ -89,10 +90,29 @@ const Order = () => {
         <div className="companyheading">
           <h1>Molten Metalworks</h1>
         </div>
+        <nav>
+          <a href="/" aria-label="Home">
+            <div className="navbox" id="homenav">
+              <p>Home</p>
+            </div>
+          </a>
+          <a href="/product" aria-label="Products">
+            <div className="navbox" id="productsnav">
+              <p>Products</p>
+            </div>
+          </a>
+          <a href="/cart" aria-label="View Cart">
+            <div className="navbox" id="viewcart">
+              <p>View Cart</p>
+            </div>
+          </a>
+        </nav>
       </header>
 
       <main>
-        <h2>Payment Information</h2>
+        <center>
+          <h2>Payment Information</h2>
+          </center>
         {alert.message && (
           <div className="alert-box" style={{ background: alert.type ? "green" : "red" }}>
             {alert.message}
@@ -104,7 +124,7 @@ const Order = () => {
             <label>Order Number:</label>
             <input type="text" value={orderNumber} readOnly />
 
-            <label>Card Holder Name:</label>
+            <label>*Card Holder Name:</label>
             <input
               type="text"
               name="cardHolderName"
@@ -113,7 +133,7 @@ const Order = () => {
               required
             />
 
-            <label>Card Number:</label>
+            <label>*Card Number:</label>
             <input
               type="text"
               name="cardNumber"
@@ -125,7 +145,7 @@ const Order = () => {
               required
             />
 
-            <label>Card Expiration (MM/YY):</label>
+            <label>*Card Expiration (MM/YY):</label>
             <input
               type="text"
               name="cardExpiration"
@@ -137,7 +157,7 @@ const Order = () => {
               required
             />
 
-            <label>CVV:</label>
+            <label>*CVV:</label>
             <input
               type="text"
               name="cvv"
@@ -149,7 +169,7 @@ const Order = () => {
               required
             />
 
-            <label>Address:</label>
+            <label>*Address:</label>
             <input
               type="text"
               name="address"
@@ -158,7 +178,7 @@ const Order = () => {
               required
             />
 
-            <label>Country:</label>
+            <label>*Country:</label>
             <input
               type="text"
               name="country"
@@ -167,7 +187,7 @@ const Order = () => {
               required
             />
 
-            <label>City:</label>
+            <label>*City:</label>
             <input
               type="text"
               name="city"
@@ -176,7 +196,7 @@ const Order = () => {
               required
             />
 
-            <label>ZIP Code:</label>
+            <label>*ZIP Code:</label>
             <input
               type="text"
               name="zipCode"
@@ -188,7 +208,7 @@ const Order = () => {
               required
             />
 
-            <label>Email:</label>
+            <label>*Email:</label>
             <input
               type="email"
               name="email"
@@ -198,11 +218,17 @@ const Order = () => {
             />
 
             <div className="order-summary">
-              <h3>Order Summary</h3>
-              <p>Subtotal: ${subtotal.toFixed(2)}</p>
-              <p>Taxes (15%): ${tax.toFixed(2)}</p>
-              <p>Total: ${total.toFixed(2)}</p>
-              <button type="submit">Place Order</button>
+              <center><h3>Order Summary</h3></center>
+              <br />
+              <div className="summary-box">
+                <center><p>Subtotal: ${subtotal.toFixed(2)}</p></center>
+                <center><p>Taxes (15%): ${tax.toFixed(2)}</p></center>
+                <center><p>Total: ${total.toFixed(2)}</p></center>
+                <br />
+                <div className="summary-footer">
+                  <center><button type="submit">Place Order</button></center>
+                </div>
+              </div>
             </div>
           </form>
 
@@ -215,6 +241,20 @@ const Order = () => {
       <footer>
         <div className="copyright">
           <p>Copyright &copy; Molten Metalworks 2024</p>
+        </div>
+        <div className="socials">
+          <a href="#" aria-label="Email">
+            <img src="/images/email-icon 1.png" alt="Email" title="Email" />
+          </a>
+          <a href="#" aria-label="Facebook">
+            <img src="/images/facebook-icon 1.png" alt="Facebook" title="Facebook" />
+          </a>
+          <a href="#" aria-label="Instagram">
+            <img src="/images/instagram-icon 1.png" alt="Instagram" title="Instagram" />
+          </a>
+          <a href="#" aria-label="Twitter/X">
+            <img src="/images/twitter-icon 2.png" alt="Twitter/X" title="Twitter/X" />
+          </a>
         </div>
       </footer>
     </div>

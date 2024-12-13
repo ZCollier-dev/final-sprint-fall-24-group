@@ -73,33 +73,5 @@
       "image": "/images/image 14.png"
     }
   ],
-  "cart": [],
-  "cities": [
-    {
-      "id": "1",
-      "name": "New York"
-    },
-    {
-      "id": "2",
-      "name": "Los Angeles"
-    },
-    {
-      "id": "3",
-      "name": "Chicago"
-    }
-  ],
-  "countries": [
-    {
-      "id": "1",
-      "name": "United States"
-    },
-    {
-      "id": "2",
-      "name": "Canada"
-    },
-    {
-      "id": "3",
-      "name": "United Kingdom"
-    }
-  ]
+  "cart": []
 }
