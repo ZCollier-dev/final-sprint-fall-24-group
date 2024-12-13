@@ -408,9 +408,9 @@ select {
     gap: 2rem;
   }
 
-  /* Order Page */
+/* Checkout Page */
 
-  .custom-order-form > input,
+  .order-form > input,
   select {
     width: 99%;
   }
@@ -427,23 +427,6 @@ select {
     width: 100%;
     margin-left: 0rem;
   }
-
-  .order-summary {
-    margin-top: 20px;
-    text-align: center;
-  }
-
-  .summary-box {
-    border: 2px solid black; /* Black border */
-    border-radius: 10px;     /* Rounded corners */
-    padding: 20px;          /* Space inside the box */
-    background-color: #000; /* Black background color */
-    color: white;           /* Text color */
-    margin: 10px auto;      /* Center the box */
-    text-align: center;     /* Center-align the text */
-    max-width: 500px;       /* Optional: limit the box width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for effect */
-  }
   
   .summary-footer {
     margin-top: 20px;       /* Space above the button */
@@ -451,19 +434,41 @@ select {
     justify-content: center;
   }
   
-  
-  
-
-  
   .summary-box p {
     margin: 5px 0;
     font-size: 1.1rem;
     color: #333;
   }
-  
-  
-  
 }
+
+.payment-heading {
+  text-align: center;
+  padding: 30px;
+  font-family: "Pirata One", system-ui;
+  font-size: 2rem;
+}
+
+.summary-box {
+  padding: 20px;          /* Space inside the box */
+  color: white;           /* Text color */
+  margin: 10px auto;      /* Center the box */
+  text-align: center;     /* Center-align the text */
+  max-width: 500px;       /* Optional: limit the box width */
+}
+
+
+.return-to-cart {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.order-summary h3 {
+  font-family: "Pirata One", system-ui;
+  font-size: 1.7rem;
+  padding-top: 35px;
+  text-align: center;
+}
+
 
 
 /* Cart Page */

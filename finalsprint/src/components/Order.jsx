@@ -110,9 +110,9 @@ const Order = () => {
       </header>
 
       <main>
-        <center>
+        <div className = "payment-heading">
           <h2>Payment Information</h2>
-          </center>
+          </div>
         {alert.message && (
           <div className="alert-box" style={{ background: alert.type ? "green" : "red" }}>
             {alert.message}
@@ -124,7 +124,7 @@ const Order = () => {
             <label>Order Number:</label>
             <input type="text" value={orderNumber} readOnly />
 
-            <label>*Card Holder Name:</label>
+            <label>Card Holder Name:</label>
             <input
               type="text"
               name="cardHolderName"
@@ -133,7 +133,7 @@ const Order = () => {
               required
             />
 
-            <label>*Card Number:</label>
+            <label>Card Number:</label>
             <input
               type="text"
               name="cardNumber"
@@ -145,7 +145,7 @@ const Order = () => {
               required
             />
 
-            <label>*Card Expiration (MM/YY):</label>
+            <label>Card Expiration (MM/YY):</label>
             <input
               type="text"
               name="cardExpiration"
@@ -157,7 +157,7 @@ const Order = () => {
               required
             />
 
-            <label>*CVV:</label>
+            <label>CVV:</label>
             <input
               type="text"
               name="cvv"
@@ -169,7 +169,7 @@ const Order = () => {
               required
             />
 
-            <label>*Address:</label>
+            <label>Address:</label>
             <input
               type="text"
               name="address"
@@ -178,7 +178,7 @@ const Order = () => {
               required
             />
 
-            <label>*Country:</label>
+            <label>Country:</label>
             <input
               type="text"
               name="country"
@@ -187,7 +187,7 @@ const Order = () => {
               required
             />
 
-            <label>*City:</label>
+            <label>City:</label>
             <input
               type="text"
               name="city"
@@ -196,10 +196,10 @@ const Order = () => {
               required
             />
 
-            <label>*ZIP Code:</label>
+            <label>Postal Code:</label>
             <input
               type="text"
-              name="zipCode"
+              name="postalCode"
               maxLength="6"
               value={formData.zipCode}
               onChange={(e) => {
@@ -208,7 +208,7 @@ const Order = () => {
               required
             />
 
-            <label>*Email:</label>
+            <label>Email:</label>
             <input
               type="email"
               name="email"
@@ -218,15 +218,15 @@ const Order = () => {
             />
 
             <div className="order-summary">
-              <center><h3>Order Summary</h3></center>
+              <h3>Order Summary</h3>
               <br />
               <div className="summary-box">
-                <center><p>Subtotal: ${subtotal.toFixed(2)}</p></center>
-                <center><p>Taxes (15%): ${tax.toFixed(2)}</p></center>
-                <center><p>Total: ${total.toFixed(2)}</p></center>
+                <p>Subtotal: ${subtotal.toFixed(2)}</p>
+                <p>Taxes (15%): ${tax.toFixed(2)}</p>
+                <p>Total: ${total.toFixed(2)}</p>
                 <br />
                 <div className="summary-footer">
-                  <center><button type="submit">Place Order</button></center>
+                  <button type="submit">Place Order</button>
                 </div>
               </div>
             </div>
