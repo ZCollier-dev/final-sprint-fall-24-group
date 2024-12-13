@@ -1,8 +1,9 @@
-# React + Vite
+# FINAL SPRINT SEMESTER 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Developed by Scarlett (cybrrgrl), Sarah Elizabeth Murphy and Zachary Collier.
 
-Currently, two official plugins are available:
+Please ensure to run "npm install" inside of finalsprint folder.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Also be sure to run npm install "jest-environment-jsdom". The test files will not work for some reason if this is not installed.
+
+Before running "npm run dev", please run the command "json-server --watch db.json --port 5000".
