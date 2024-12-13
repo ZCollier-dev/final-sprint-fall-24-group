@@ -59,17 +59,31 @@ const Order = () => {
   };
 
   const validateForm = () => {
-    const { cardHolderName, cardNumber, cardExpiration, cvv, address, city, country, zipCode, email } = formData;
+    const {
+      cardHolderName,
+      cardNumber,
+      cardExpiration,
+      cvv,
+      address,
+      city,
+      country,
+      zipCode,
+      email,
+    } = formData;
 
-    if (!cardHolderName || cardHolderName.trim().length === 0) return "Card holder name is required.";
-    if (!cardNumber || !/^[0-9]{16}$/.test(cardNumber)) return "Invalid card number.";
-    if (!cardExpiration || !/^(0[1-9]|1[0-2])\/\d{2}$/.test(cardExpiration)) return "Invalid card expiration date.";
+    if (!cardHolderName || cardHolderName.trim().length === 0)
+      return "Card holder name is required.";
+    if (!cardNumber || !/^[0-9]{16}$/.test(cardNumber))
+      return "Invalid card number.";
+    if (!cardExpiration || !/^(0[1-9]|1[0-2])\/\d{2}$/.test(cardExpiration))
+      return "Invalid card expiration date.";
     if (!cvv || !/^[0-9]{3}$/.test(cvv)) return "Invalid CVV.";
     if (!address || address.trim().length === 0) return "Address is required.";
     if (!city || city.trim().length === 0) return "City is required.";
     if (!country || country.trim().length === 0) return "Country is required.";
     if (!zipCode || !/^[A-Z0-9]{6}$/.test(zipCode)) return "Invalid ZIP code.";
-    if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return "Invalid email address.";
+    if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))
+      return "Invalid email address.";
 
     return null;
   };
@@ -110,11 +124,14 @@ const Order = () => {
       </header>
 
       <main>
-        <div className = "payment-heading">
+        <div className="payment-heading">
           <h2>Payment Information</h2>
-          </div>
+        </div>
         {alert.message && (
-          <div className="alert-box" style={{ background: alert.type ? "green" : "red" }}>
+          <div
+            className="alert-box"
+            style={{ background: alert.type ? "green" : "red" }}
+          >
             {alert.message}
           </div>
         )}
@@ -152,7 +169,8 @@ const Order = () => {
               maxLength="5"
               value={formData.cardExpiration}
               onChange={(e) => {
-                if (/^(\d{0,2}|\d{2}\/\d{0,2})$/.test(e.target.value)) handleFormChange(e);
+                if (/^(\d{0,2}|\d{2}\/\d{0,2})$/.test(e.target.value))
+                  handleFormChange(e);
               }}
               required
             />
@@ -203,7 +221,8 @@ const Order = () => {
               maxLength="6"
               value={formData.zipCode}
               onChange={(e) => {
-                if (/^[A-Z0-9]{0,6}$/.test(e.target.value.toUpperCase())) handleFormChange(e);
+                if (/^[A-Z0-9]{0,6}$/.test(e.target.value.toUpperCase()))
+                  handleFormChange(e);
               }}
               required
             />
@@ -218,15 +237,17 @@ const Order = () => {
             />
 
             <div className="order-summary">
-              <h3>Order Summary</h3>
-              <br />
-              <div className="summary-box">
-                <p>Subtotal: ${subtotal.toFixed(2)}</p>
-                <p>Taxes (15%): ${tax.toFixed(2)}</p>
-                <p>Total: ${total.toFixed(2)}</p>
+              <div>
+                <h3>Order Summary</h3>
                 <br />
-                <div className="summary-footer">
-                  <button type="submit">Place Order</button>
+                <div className="summary-box">
+                  <p>Subtotal: ${subtotal.toFixed(2)}</p>
+                  <p>Taxes (15%): ${tax.toFixed(2)}</p>
+                  <p>Total: ${total.toFixed(2)}</p>
+                  <br />
+                  <div className="summary-footer">
+                    <button type="submit">Place Order</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -247,13 +268,25 @@ const Order = () => {
             <img src="/images/email-icon 1.png" alt="Email" title="Email" />
           </a>
           <a href="#" aria-label="Facebook">
-            <img src="/images/facebook-icon 1.png" alt="Facebook" title="Facebook" />
+            <img
+              src="/images/facebook-icon 1.png"
+              alt="Facebook"
+              title="Facebook"
+            />
           </a>
           <a href="#" aria-label="Instagram">
-            <img src="/images/instagram-icon 1.png" alt="Instagram" title="Instagram" />
+            <img
+              src="/images/instagram-icon 1.png"
+              alt="Instagram"
+              title="Instagram"
+            />
           </a>
           <a href="#" aria-label="Twitter/X">
-            <img src="/images/twitter-icon 2.png" alt="Twitter/X" title="Twitter/X" />
+            <img
+              src="/images/twitter-icon 2.png"
+              alt="Twitter/X"
+              title="Twitter/X"
+            />
           </a>
         </div>
       </footer>

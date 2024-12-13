@@ -236,6 +236,13 @@ h4 {
   padding: 1rem;
 }
 
+.order-summary {
+  display: flex;
+  justify-content: center;
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
 .custom-order-box {
   background-color: rgba(0, 0, 0, 0.4);
   margin: 1.5rem 5%;
@@ -408,7 +415,7 @@ select {
     gap: 2rem;
   }
 
-/* Checkout Page */
+  /* Checkout Page */
 
   .order-form > input,
   select {
@@ -427,13 +434,13 @@ select {
     width: 100%;
     margin-left: 0rem;
   }
-  
+
   .summary-footer {
-    margin-top: 20px;       /* Space above the button */
+    margin-top: 20px; /* Space above the button */
     display: flex;
     justify-content: center;
   }
-  
+
   .summary-box p {
     margin: 5px 0;
     font-size: 1.1rem;
@@ -449,13 +456,12 @@ select {
 }
 
 .summary-box {
-  padding: 20px;          /* Space inside the box */
-  color: white;           /* Text color */
-  margin: 10px auto;      /* Center the box */
-  text-align: center;     /* Center-align the text */
-  max-width: 500px;       /* Optional: limit the box width */
+  padding: 20px; /* Space inside the box */
+  color: white; /* Text color */
+  margin: 10px auto; /* Center the box */
+  text-align: center; /* Center-align the text */
+  max-width: 500px; /* Optional: limit the box width */
 }
-
 
 .return-to-cart {
   text-align: center;
@@ -468,8 +474,6 @@ select {
   padding-top: 35px;
   text-align: center;
 }
-
-
 
 /* Cart Page */
 .cart {
@@ -556,4 +560,3 @@ p {
 .quantity-button span {
   margin: 0 10px;
 }
-
