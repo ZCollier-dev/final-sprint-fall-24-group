@@ -1,0 +1,77 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Gold Bracelet",
+      "price": 400,
+      "image": "/images/image 3.png"
+    },
+    {
+      "id": "2",
+      "name": "Copper Bracelet",
+      "price": 315,
+      "image": "/images/image 4.png"
+    },
+    {
+      "id": "3",
+      "name": "Iron Bracelet",
+      "price": 175,
+      "image": "/images/image 5.png"
+    },
+    {
+      "id": "4",
+      "name": "Iron Keychain",
+      "price": 50,
+      "image": "/images/image 6.png"
+    },
+    {
+      "id": "5",
+      "name": "Gold Keychain",
+      "price": 75,
+      "image": "/images/image 7.png"
+    },
+    {
+      "id": "6",
+      "name": "Copper Keychain",
+      "price": 85,
+      "image": "/images/image 8.png"
+    },
+    {
+      "id": "7",
+      "name": "Iron Axe",
+      "price": 250,
+      "image": "/images/image 9.png"
+    },
+    {
+      "id": "8",
+      "name": "Gold Candlesticks",
+      "price": 350,
+      "image": "/images/image 10.png"
+    },
+    {
+      "id": "9",
+      "name": "Iron Hammer",
+      "price": 175,
+      "image": "/images/image 11.png"
+    },
+    {
+      "id": "10",
+      "name": "Iron Knife",
+      "price": 180,
+      "image": "/images/image 12.png"
+    },
+    {
+      "id": "11",
+      "name": "Gold Fire Poker",
+      "price": 275,
+      "image": "/images/image 13.png"
+    },
+    {
+      "id": "12",
+      "name": "Iron Sword",
+      "price": 215,
+      "image": "/images/image 14.png"
+    }
+  ],
+  "cart": []
+}

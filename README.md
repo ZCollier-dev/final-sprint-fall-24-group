@@ -1,9 +1,8 @@
-# final-sprint-fall-24-group
+# React + Vite
 
-2nd semester Final Sprint Project for Keyin College's 2024 Fall Semester. Group members: Zachary Collier, Kyle/Scarlett Budgell, Sarah Elizabeth Murphy.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-REMINDERS / NOTES: Run "npm install" in folder "finalsprint".
+Currently, two official plugins are available:
 
-Also run the command "npm install "jest-environment-jsdom". For some reason, this doesn't install in node modules folder.
-
-Before running "npm run dev", please run the command "json-server --watch db.json --port 5000". This will enable the JSON server to work for full functionality!
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
