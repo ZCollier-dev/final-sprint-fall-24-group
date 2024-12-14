@@ -92,12 +92,14 @@ const Order = () => {
     e.preventDefault();
     const errorMessage = validateForm();
     if (errorMessage) {
-      alert("Please review the form.");
+      window.alert("Please review the form."); // Use window.alert
       return;
     }
-    alert("Order has been placed!");
+    window.alert(`Order #${orderNumber} has been confirmed and placed successfully!`); // Use window.alert
   };
-
+  
+  
+  
   return (
     <div className="bodybox">
       <header>
@@ -214,18 +216,20 @@ const Order = () => {
               required
             />
 
-            <label>Postal Code:</label>
-            <input
-              type="text"
-              name="postalCode"
-              maxLength="6"
-              value={formData.zipCode}
-              onChange={(e) => {
-                if (/^[A-Z0-9]{0,6}$/.test(e.target.value.toUpperCase()))
-                  handleFormChange(e);
-              }}
-              required
-            />
+<label>Postal Code:</label>
+<input
+  type="text"
+  name="zipCode"
+  maxLength="6"
+  value={formData.zipCode}
+  onChange={(e) => {
+    const uppercaseValue = e.target.value.toUpperCase();
+    if (/^[A-Z0-9]*$/.test(uppercaseValue)) {
+      handleFormChange({ target: { name: "zipCode", value: uppercaseValue } });
+    }
+  }}
+  required
+/>
 
             <label>Email:</label>
             <input
